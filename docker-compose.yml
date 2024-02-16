@@ -1,0 +1,15 @@
+version: '3'
+volumes:
+  data:
+services:
+  db:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: contrasinal
+      MYSQL_DATABASE: surf_log
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: contrasinal
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - "3306:3306"
