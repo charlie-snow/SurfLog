@@ -1,12 +1,14 @@
 package es.mareator.surflog;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Surflog {
 
 	public static void main(String[] args) {
-		System.out.println("Hola mundosurf");
+		SpringApplication.run(Surflog.class, args);
+		System.out.println("Iniciado >>>>>>>>>>> puerto 4000");
 	}
 
 }
