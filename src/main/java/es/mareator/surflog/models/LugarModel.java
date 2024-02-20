@@ -11,6 +11,8 @@ import jakarta.persistence.Table;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "lugares")
 public class LugarModel {
@@ -26,15 +28,17 @@ public class LugarModel {
     private String coordenadas;
 
     @OneToMany(mappedBy = "lugar")
+    @JsonManagedReference
     private List<RegistroModel> registros;
 
     public LugarModel() {
     }
 
-    public LugarModel(Long id, String nombre, String coordenadas) {
+    public LugarModel(Long id, String nombre, String coordenadas, List<RegistroModel> registros) {
         this.id = id;
         this.nombre = nombre;
         this.coordenadas = coordenadas;
+        this.registros = registros;
     }
 
     public Long getId() {
@@ -61,6 +65,14 @@ public class LugarModel {
         this.coordenadas = coordenadas;
     }
 
+    public List<RegistroModel> getRegistros() {
+        return this.registros;
+    }
+
+    public void setRegistros(List<RegistroModel> registros) {
+        this.registros = registros;
+    }
+
     public LugarModel id(Long id) {
         setId(id);
         return this;
@@ -76,6 +88,11 @@ public class LugarModel {
         return this;
     }
 
+    public LugarModel registros(List<RegistroModel> registros) {
+        setRegistros(registros);
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -85,12 +102,13 @@ public class LugarModel {
         }
         LugarModel lugarModel = (LugarModel) o;
         return Objects.equals(id, lugarModel.id) && Objects.equals(nombre, lugarModel.nombre)
-                && Objects.equals(coordenadas, lugarModel.coordenadas);
+                && Objects.equals(coordenadas, lugarModel.coordenadas)
+                && Objects.equals(registros, lugarModel.registros);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, coordenadas);
+        return Objects.hash(id, nombre, coordenadas, registros);
     }
 
     @Override
@@ -99,6 +117,7 @@ public class LugarModel {
                 " id='" + getId() + "'" +
                 ", nombre='" + getNombre() + "'" +
                 ", coordenadas='" + getCoordenadas() + "'" +
+                ", registros='" + getRegistros() + "'" +
                 "}";
     }
 
