@@ -32,4 +32,9 @@ public class RegistroService {
     public Optional<RegistroModel> getRegistroById(Long registroId) {
         return registroRepository.findById(registroId);
     }
+
+    public RegistroModel createRegistro(RegistroModel registro) {
+        // Implement any validation logic if needed
+        return registroRepository.save(registro);
+    }
 }
