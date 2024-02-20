@@ -12,6 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.util.Objects;
 
+
 @Entity
 @Table(name = "registros")
 public class RegistroModel {

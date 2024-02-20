@@ -20,8 +20,10 @@ public class RegistroService {
 
     public List<RegistroModel> getRegistros() {
         try {
-            ArrayList<RegistroModel> Registros = (ArrayList<RegistroModel>) registroRepository.findAll();
-            return new ArrayList<>(Registros);
+            List<RegistroModel> registros = (ArrayList<RegistroModel>) registroRepository.findAll();
+            System.out.println(registros.size());
+            // return new List<>(registros);
+            return registros;
         } catch (Exception e) {
             System.err.println("Error recuperando Contenidos: " + e.getMessage());
             return new ArrayList<>();
