@@ -2,6 +2,7 @@ package es.mareator.surflog.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,5 +26,10 @@ public class RegistroService {
             System.err.println("Error recuperando Contenidos: " + e.getMessage());
             return new ArrayList<>();
         }
+    }
+
+    @SuppressWarnings("null")
+    public Optional<RegistroModel> getRegistroById(Long registroId) {
+        return registroRepository.findById(registroId);
     }
 }
