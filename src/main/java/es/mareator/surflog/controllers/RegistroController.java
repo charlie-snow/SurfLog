@@ -2,9 +2,11 @@ package es.mareator.surflog.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +15,7 @@ import es.mareator.surflog.models.RegistroModel;
 import es.mareator.surflog.services.RegistroService;
 
 @RestController
-@RequestMapping("/registro")
+@RequestMapping("/registros")
 public class RegistroController {
 
     @Autowired
@@ -25,4 +27,13 @@ public class RegistroController {
         return this.registroService.getRegistros();
 
     }
+
+    @GetMapping("/{id}")
+    public Optional<RegistroModel> getRegistroById(@PathVariable("id") Long id) {
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> getRegistro x Id");
+
+        System.out.println(id);
+        return this.registroService.getRegistroById(id);
+    }
+
 }

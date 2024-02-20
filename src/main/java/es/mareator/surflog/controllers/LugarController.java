@@ -11,7 +11,11 @@ import es.mareator.surflog.models.LugarModel;
 import es.mareator.surflog.services.LugarService;
 
 @RestController
+<<<<<<< HEAD
 @RequestMapping("/lugar")
+=======
+@RequestMapping("/lugares")
+>>>>>>> desarrollo
 public class LugarController {
 
     @Autowired

@@ -11,8 +11,11 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.util.Objects;
+<<<<<<< HEAD
 
 import io.micrometer.common.lang.Nullable;
+=======
+>>>>>>> desarrollo
 
 @Entity
 @Table(name = "registros")
@@ -25,9 +28,12 @@ public class RegistroModel {
     @Column
     private LocalDateTime momento;
 
+<<<<<<< HEAD
     // @Column
     // private Long donde;
 
+=======
+>>>>>>> desarrollo
     @ManyToOne
     @JoinColumn(name = "lugar") // This assumes you have a column named "lugar_id" in registros table
     private LugarModel lugar;
@@ -44,7 +50,10 @@ public class RegistroModel {
     // Condiciones --------------------------------------- >
 
     @Column
+<<<<<<< HEAD
     @Nullable
+=======
+>>>>>>> desarrollo
     private Double altura_ola; // Use Double instead of double for nullable
 
     @Column
