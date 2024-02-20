@@ -15,7 +15,7 @@ import es.mareator.surflog.models.RegistroModel;
 import es.mareator.surflog.services.RegistroService;
 
 @RestController
-@RequestMapping("/registro")
+@RequestMapping("/registros")
 public class RegistroController {
 
     @Autowired
@@ -30,9 +30,10 @@ public class RegistroController {
 
     @GetMapping("/{id}")
     public Optional<RegistroModel> getRegistroById(@PathVariable("id") Long id) {
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> getRegistros");
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> getRegistro x Id");
 
         System.out.println(id);
         return this.registroService.getRegistroById(id);
     }
+
 }
