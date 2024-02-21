@@ -11,6 +11,7 @@ import jakarta.persistence.Table;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -28,7 +29,8 @@ public class LugarModel {
     private String coordenadas;
 
     @OneToMany(mappedBy = "lugar")
-    @JsonManagedReference
+    @JsonBackReference
+
     private List<RegistroModel> registros;
 
     public LugarModel() {

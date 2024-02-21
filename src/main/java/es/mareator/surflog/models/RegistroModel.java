@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "registros")
@@ -27,7 +28,8 @@ public class RegistroModel {
 
     @ManyToOne
     @JoinColumn(name = "lugar") // This assumes you have a column named "lugar_id" in registros table
-    @JsonBackReference
+    @JsonManagedReference
+
     private LugarModel lugar;
 
     @Column
@@ -494,7 +496,7 @@ public class RegistroModel {
         return "{" +
                 " id='" + getId() + "'" +
                 ", momento='" + getMomento() + "'" +
-                ", lugar='" + getLugar() + "'" +
+                ", lugar='" + toString() + "'" +
                 ", texto='" + getTexto() + "'" +
                 ", gente='" + getGente() + "'" +
                 ", fotos='" + getFotos() + "'" +

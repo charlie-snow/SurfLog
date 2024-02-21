@@ -32,12 +32,24 @@ public class RegistroController {
 
     }
 
-    @GetMapping("/{id}")
-    public Optional<RegistroModel> getRegistroById(@PathVariable("id") Long id) {
-        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> getRegistro x Id");
+    // @GetMapping("/{id}")
+    // public Optional<RegistroModel> getRegistroById(@PathVariable("id") Long id) {
+    // System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> getRegistro x Id");
+    // return this.registroService.getRegistroById(id);
+    // }
 
-        System.out.println(id);
-        return this.registroService.getRegistroById(id);
+    @GetMapping("/{id}")
+    public RegistroModel getRegistroById(@PathVariable("id") Long id) {
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> getRegistro x Id con lugar");
+
+        Optional<RegistroModel> optionalRegistro = Optional.ofNullable(this.registroService.getRegistroWithLugar(id));
+
+        // If present, print the value, otherwise print a message indicating it's empty
+        // optionalRegistro.ifPresentOrElse(
+        // registro -> System.out.println("Registro with Lugar found: " + registro),
+        // () -> System.out.println("No Registro with Lugar found for id: " + id));
+
+        return optionalRegistro.orElse(null);
     }
 
     @PostMapping
