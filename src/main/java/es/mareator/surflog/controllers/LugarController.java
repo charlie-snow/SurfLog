@@ -26,9 +26,9 @@ public class LugarController {
         return this.lugarService.getLugares();
     }
 
-    @GetMapping("/con-registros")
-    public ResponseEntity<List<LugarModel>> getAllLugaresWithRegistros() {
-        List<LugarModel> lugares = lugarService.getAllLugaresWithRegistros();
-        return new ResponseEntity<>(lugares, HttpStatus.OK);
-    }
+    // @GetMapping("/con-registros")
+    // public ResponseEntity<List<LugarModel>> getAllLugaresWithRegistros() {
+    // List<LugarModel> lugares = lugarService.getAllLugaresWithRegistros();
+    // return new ResponseEntity<>(lugares, HttpStatus.OK);
+    // }
 }

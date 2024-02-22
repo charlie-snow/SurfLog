@@ -26,11 +26,14 @@ public class RegistroModel {
     @Column
     private LocalDateTime momento;
 
-    @ManyToOne
-    @JoinColumn(name = "lugar") // This assumes you have a column named "lugar_id" in registros table
-    @JsonManagedReference
+    // @ManyToOne
+    // @JoinColumn(name = "lugar") // This assumes you have a column named
+    // "lugar_id" in registros table
+    // @JsonManagedReference
+    // private LugarModel lugar;
 
-    private LugarModel lugar;
+    @Column
+    private Long lugar;
 
     @Column
     private String texto;
@@ -106,7 +109,7 @@ public class RegistroModel {
     public RegistroModel() {
     }
 
-    public RegistroModel(Long id, LocalDateTime momento, LugarModel lugar, String texto, Integer gente, String fotos,
+    public RegistroModel(Long id, LocalDateTime momento, Long lugar, String texto, Integer gente, String fotos,
             Double altura_ola, Short direccion_ola, Double periodo_ola, Double velocidad_viento, Short direccion_viento,
             Double punto_marea, Boolean subiendo_marea, Double altura_marea, Double temperatura_agua,
             Double temperatura_ambiente, Double lluvia, Double nubes, Short tiempo, Byte numero_olas, Byte que_tal_olas,
@@ -153,11 +156,11 @@ public class RegistroModel {
         this.momento = momento;
     }
 
-    public LugarModel getLugar() {
+    public Long getLugar() {
         return this.lugar;
     }
 
-    public void setLugar(LugarModel lugar) {
+    public void setLugar(Long lugar) {
         this.lugar = lugar;
     }
 
@@ -343,7 +346,7 @@ public class RegistroModel {
         return this;
     }
 
-    public RegistroModel lugar(LugarModel lugar) {
+    public RegistroModel lugar(Long lugar) {
         setLugar(lugar);
         return this;
     }
@@ -496,7 +499,7 @@ public class RegistroModel {
         return "{" +
                 " id='" + getId() + "'" +
                 ", momento='" + getMomento() + "'" +
-                ", lugar='" + toString() + "'" +
+                ", lugar='" + getLugar() + "'" +
                 ", texto='" + getTexto() + "'" +
                 ", gente='" + getGente() + "'" +
                 ", fotos='" + getFotos() + "'" +

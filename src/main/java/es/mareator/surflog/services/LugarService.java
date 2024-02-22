@@ -32,9 +32,10 @@ public class LugarService {
         }
     }
 
-    public List<LugarModel> getAllLugaresWithRegistros() {
-        List<LugarModel> lugares = lugarRepository.findAll();
-        lugares.forEach(lugar -> lugar.setRegistros(registroRepository.findByLugarId(lugar.getId())));
-        return lugares;
-    }
+    // public List<LugarModel> getAllLugaresWithRegistros() {
+    // List<LugarModel> lugares = lugarRepository.findAll();
+    // lugares.forEach(lugar ->
+    // lugar.setRegistros(registroRepository.findByLugarId(lugar.getId())));
+    // return lugares;
+    // }
 }

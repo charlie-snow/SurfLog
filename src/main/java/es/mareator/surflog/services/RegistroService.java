@@ -33,37 +33,39 @@ public class RegistroService {
         }
     }
 
-    @SuppressWarnings("null")
-    public RegistroModel getRegistroWithLugar(Long registroId) {
-        Optional<RegistroModel> registroOptional = registroRepository.findById(registroId);
+    // @SuppressWarnings("null")
+    // public RegistroModel getRegistroWithLugar(Long registroId) {
+    // Optional<RegistroModel> registroOptional =
+    // registroRepository.findById(registroId);
 
-        if (registroOptional.isPresent()) {
-            RegistroModel registro = registroOptional.get();
-            System.out.println("registro");
+    // if (registroOptional.isPresent()) {
+    // RegistroModel registro = registroOptional.get();
+    // System.out.println("registro");
 
-            // Make sure the associated LugarModel is fetched
-            if (registro.getLugar() != null) {
-                System.out.println("lugaropt");
+    // // Make sure the associated LugarModel is fetched
+    // if (registro.getLugar() != null) {
+    // System.out.println("lugaropt");
 
-                Optional<LugarModel> lugarOptional = lugarRepository.findById(registro.getLugar().getId());
+    // Optional<LugarModel> lugarOptional =
+    // lugarRepository.findById(registro.getLugar().getId());
 
-                if (lugarOptional.isPresent()) {
-                    System.out.println("lugar");
-                    registro.setLugar(lugarOptional.get());
-                    System.out.println(registro.getLugar().getNombre());
+    // if (lugarOptional.isPresent()) {
+    // System.out.println("lugar");
+    // registro.setLugar(lugarOptional.get());
+    // System.out.println(registro.getLugar().getNombre());
 
-                } else {
-                    // Handle case where associated LugarModel is not found
-                    System.out.println("Lugar no encontrado");
-                }
-            }
+    // } else {
+    // // Handle case where associated LugarModel is not found
+    // System.out.println("Lugar no encontrado");
+    // }
+    // }
 
-            return registro;
-        } else {
-            // Handle case where RegistroModel is not found
-            return null;
-        }
-    }
+    // return registro;
+    // } else {
+    // // Handle case where RegistroModel is not found
+    // return null;
+    // }
+    // }
 
     @SuppressWarnings("null")
     public Optional<RegistroModel> getRegistroById(Long registroId) {

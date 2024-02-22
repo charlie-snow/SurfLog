@@ -8,6 +8,6 @@ import es.mareator.surflog.models.RegistroModel;
 
 public interface IRegistroRepository extends JpaRepository<RegistroModel, Long> {
 
-    List<RegistroModel> findByLugarId(Long lugarId);
+    // List<RegistroModel> findByLugarId(Long lugarId);
 
 }
